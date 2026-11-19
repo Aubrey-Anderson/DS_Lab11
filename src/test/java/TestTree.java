@@ -12,7 +12,10 @@ public class TestTree
 	Scanner comp;
 	PrintStream me;
 	boolean show = true; //if set to true, will print out respones to and from the game.  Set to false to make it faster.
-	
+	public static final String APPLE = "Apple";
+	public static final String HUMAN = "Human";
+	public static final String IS_IT_A_FRUIT = "Is it a fruit?";
+	public static final String IS_IT_A_BIRD = "Is it a bird?";
     
     //initializes the Testing environment with piped streams (Queues)
 	public TestTree() throws IOException
@@ -66,10 +69,66 @@ public class TestTree
 	{
 		
 		check(Strings.IS_IT_ALIVE);
-        say("Y");
+        say("n");
         //now what? Think of all the input and outputs here...
-		
-
+		check(Strings.IS_IT_A + Strings.ROCK+ "?");
+		say("n");
+		check(Strings.WHAT_IS_THE_ANSWER);
+		say("Apple");
+		check(Strings.NEW_QUESTION + Strings.ROCK + " and a " + APPLE);
+		say("Is it a fruit?");
+		check("Answering yes to " + IS_IT_A_FRUIT + " means " + APPLE + "?");
+		say("y");
+		check(Strings.THANKS);
+		check(Strings.PLAY_AGAIN);
+		say("y");
+		check(Strings.IS_IT_ALIVE);
+		say("y");
+		check(Strings.IS_IT_A + Strings.DUCK + "?");
+		say("n");
+		check(Strings.WHAT_IS_THE_ANSWER);
+		say("Human");
+		check(Strings.NEW_QUESTION + Strings.DUCK + " and a " + HUMAN);
+		say("Is it a bird?");
+		check("Answering yes to " + IS_IT_A_BIRD + " means " + HUMAN + "?");
+		say("n");
+		check(Strings.THANKS);
+		check(Strings.PLAY_AGAIN);
+		say("y");
+		check(Strings.IS_IT_ALIVE);
+        say("n");
+        check(IS_IT_A_FRUIT);
+        say("y");
+        check(Strings.IS_IT_A + APPLE+ "?");
+        say("y");
+        check(Strings.I_WIN);
+        check(Strings.PLAY_AGAIN);
+        say("y");
+        check(Strings.IS_IT_ALIVE);
+        say("y");
+        check(IS_IT_A_BIRD);
+        say("y");
+        check(Strings.IS_IT_A + Strings.DUCK + "?");
+        say("y");
+        check(Strings.I_WIN);
+        check(Strings.PLAY_AGAIN);
+        check(Strings.IS_IT_ALIVE);
+        say("y");
+        check(IS_IT_A_BIRD);
+        say("n");
+        check(Strings.IS_IT_A + HUMAN+ "?");
+        say("y");
+        check(Strings.I_WIN);
+        check(Strings.PLAY_AGAIN);
+        check(Strings.IS_IT_ALIVE);
+        say("n");
+        check(IS_IT_A_FRUIT);
+        say("n");
+        check(Strings.IS_IT_A + Strings.ROCK+ "?");
+        say("y");
+        check(Strings.I_WIN);
+        check(Strings.PLAY_AGAIN);
+        say("n");
         
         
         //close the streams at the end to enrue good behavior.
